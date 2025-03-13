@@ -6,6 +6,7 @@
 use think\facade\Env;
 
 return [
+    // 'base_url' => '/USDT/public/',
     // 应用地址
     'app_host'         => Env::get('app.host', ''),
     // 应用的命名空间
