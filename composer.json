@@ -28,7 +28,8 @@
         "qiniu/php-sdk": "^7.2",
         "alibabacloud/client": "^1.5",
         "jianyan74/php-excel": "^1.0",
-        "iexbase/tron-api": "^4.0"
+        "iexbase/tron-api": "^4.0",
+        "web3p/web3.php": "^0.3.2"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.2",

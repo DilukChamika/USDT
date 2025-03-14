@@ -1,0 +1,53 @@
+On CMD:
+wsl
+sudo service redis-server start
+sudo service redis-server status
+redis-cli ping
+ip addr show eth0
+
+
+Run Ganache GUI
+Ensure port is 8545
+
+
+Start XAMPP
+
+
+Create Task Scheduler
+
+
+
+Access the Merchant Backend:
+Open your browser and visit:
+If DocumentRoot is set: http://localhost/merchant
+If using subdirectory: http://localhost/USDT/public/merchant
+Login credentials:
+Account: 测试商户 (Test Merchant)
+Password: 123456
+
+
+
+.env file:
+
+APP_DEBUG=true
+
+[DATABASE]
+TYPE=mysql
+HOSTNAME=127.0.0.1
+DATABASE=upay_db
+USERNAME=root
+PASSWORD=
+HOSTPORT=3306
+
+[REDIS]
+host=127.0.0.1  # Use 127.0.0.1 if port forwarding is set up, else WSL2 IP (e.g., 172.31.12.67)
+port=6379
+password=
+
+# Ethereum settings for Ganache
+ERC20_ADDRESS=0xYourGanacheAccountAddress  # Replace with a Ganache account (e.g., 0x123...)
+# INFURA_KEY=  # Comment out or remove, not needed for Ganache
+ETHEREUM_NETWORK=local  # Optional, if supported
+
+# Optionally disable TRC20 for now
+# TRC20_ADDRESS=TSAPQKgUGnUoNy8Soszt3GhjhfewN7LjVp
