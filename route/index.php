@@ -13,6 +13,9 @@ use think\facade\Route;
 Route::view('/', 'index', []);
 
 
+Route::get('transaction/getAccount', 'TransactionController/getAccount');
+Route::post('transaction/send', 'TransactionController/send');
+
 
 
 

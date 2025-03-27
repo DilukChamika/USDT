@@ -1,14 +1,18 @@
-   <!--replace css-->
-    <link rel="stylesheet" href="__STATIC__/merchant/css/configUI.css" />
-<div class="layuimini-container">
-
+      <!--replace css-->
+      <link rel="stylesheet" href="__STATIC__/merchant/css/configUI.css" />
+      <div class="layuimini-container">
+      
+          
+    
+   
+   <!--BUILT IN CODE-->
+   
     
     <div class="layuimini-main" id="app">
 
         <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
             <ul class="layui-tab-title">
                 <li class="layui-this">{:lang('reg_tip68')}</li>
-                
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
@@ -66,3 +70,56 @@
 
     </div>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    // Fetch Ethereum Account Details
+    $.ajax({
+        url: "eth_withdraw.php",
+        type: "GET",
+        dataType: "json",
+        success: function (response) {
+            if (response.error) {
+                $("#transactionResult").html('<p style="color:red;">' + response.error + '</p>');
+            } else {
+                $("#fromAddress").val(response.fromAddress);
+                $("#balanceInEther").val(response.balanceInEther);
+            }
+        },
+        error: function () {
+            $("#transactionResult").html('<p style="color:red;">Failed to load account details.</p>');
+        }
+    });
+
+    // Send ETH Transaction on Button Click
+    $("#sendEth").click(function () {
+        var toAddress = $("#toAddress").val();
+        var amount = $("#amount").val();
+
+        if (!toAddress || !amount) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        $.ajax({
+            url: "eth_withdraw.php",
+            type: "POST",
+            data: { toAddress: toAddress, amount: amount },
+            dataType: "json",
+            success: function (response) {
+                if (response.error) {
+                    $("#transactionResult").html('<p style="color:red;">' + response.error + '</p>');
+                } else {
+                    $("#transactionResult").html('<p style="color:green;">' + response.success + '</p>');
+                }
+            },
+            error: function () {
+                $("#transactionResult").html('<p style="color:red;">Transaction failed.</p>');
+            }
+        });
+    });
+});
+</script>
+

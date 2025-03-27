@@ -42,4 +42,32 @@
   }else{
     huobi='人民币(CNY)';
   }
+
+
+  
+    // Fetch Ethereum Data using AJAX
+    fetch("eth_transaction.php")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("fromAddress").innerText = data.fromAddress;
+            document.getElementById("balanceInEther").innerText = data.balanceInEther;
+        })
+        .catch(error => console.error("Error fetching Ethereum data:", error));
+
+    // Handle form submission
+    document.getElementById("ethTransactionForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var formData = new FormData(this);
+
+        fetch("eth_transaction.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("transactionStatus").innerText = data;
+        })
+        .catch(error => console.error("Transaction Error:", error));
+    });
+
 </script>

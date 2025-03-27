@@ -51,3 +51,10 @@ ETHEREUM_NETWORK=local  # Optional, if supported
 
 # Optionally disable TRC20 for now
 # TRC20_ADDRESS=TSAPQKgUGnUoNy8Soszt3GhjhfewN7LjVp
+
+
+
+# DocumentRoot "C:/xampp/htdocs"
+# <Directory "C:/xampp/htdocs">
+DocumentRoot "C:/xampp/htdocs/USDT/public"
+<Directory "C:/xampp/htdocs/USDT/public">

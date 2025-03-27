@@ -55,6 +55,7 @@ define(["jquery", "miniMenu", "miniTheme", "miniTab"], function ($, miniMenu, mi
             'tip15':'Clear cache successfully',
             'tip16':'Refresh successfully',
             'tip17':' Merchant',
+            'tip100018':'Ganache Transaction',
         }
     }
     let lang = document.cookie.includes('en-us')?'en-us':'zh-cn'
@@ -88,7 +89,7 @@ define(["jquery", "miniMenu", "miniTheme", "miniTab"], function ($, miniMenu, mi
                         text = lang === 'en-us'?obj.en['tip8']:obj.cn['tip8']
                         break
                     case '收款钱包地址':
-                        text = lang === 'en-us'?obj.en['tip9']:obj.cn['tip9']
+                        text = lang === 'en-us'?obj.en['tip100018']:obj.cn['tip9']
                         break
                     case '使用帮助':
                         text = lang === 'en-us'?obj.en['tip10']:obj.cn['tip10']
